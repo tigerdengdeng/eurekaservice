@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--父框架的依赖 对所有子框架共享-->
+    <!--父框架-->
+    <groupId>cloudservice</groupId>
+    <artifactId>eurekaservice</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <!--当我们创建一个 Spring Boot 工程时，可以继承自一个 spring-boot-starter-parent ，也可以不继承自它，我们先来看第一种情况。先来看 parent 的基本功能有哪些？
+    定义了 Java 编译版本为 1.8 。
+    使用 UTF-8 格式编码。
+    继承自 spring-boot-dependencies，这个里边定义了依赖的版本，也正是因为继承了这个依赖，所以我们在写依赖时才不需要写版本号。
+    执行打包操作的配置。
+    自动化的资源过滤。
+    自动化的插件配置。
+    针对 application.properties 和 application.yml 的资源过滤，包括通过 profile 定义的不同环境的配置文件，例如 application-dev.properties 和 application-dev.yml。-->
+    <!--spring-boot 依赖-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--spring-cloud 依赖-->
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
+    </properties>
+    <!--各项依赖-->
+    <dependencies>
+        <!--spring-boot-web依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!--热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <version>2.2.1.RELEASE</version>
+        </dependency>
+
+        <!--eureka 剔除服务自我保护模式打开时，已关停节点是会一直显示在 Eureka 首页的
+关闭自我保护模式后，由于其默认的心跳周期比较长等原因，要过一会儿才会发现已关停节点被自动踢出了
+若想尽快的及时踢出，那就只有修改默认的心跳周期参数了
+注册中心eureka-server的配置文件application.properties中修改为-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--简化 get set-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>1.18.10</version>
+        </dependency>
+    </dependencies>
+    <!--引入子框架-->
+    <modules>
+       <module>project-configserver</module>
+        <module>project-eurekaserver</module>
+        <module>project-userclient</module>
+    </modules>
+    <!--控制spring-boot-cloud版本-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <!--maven-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

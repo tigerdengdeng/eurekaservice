@@ -1,0 +1,15 @@
+#config 服务端
+spring:
+  application:
+    name: project-configserver
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/Project_tiger/configcloud.git  #仓库地址
+          search-paths: /**    #给予访问所有目录权限
+          password:
+          username:
+      label:  master  #指定访问分支
+server:
+  port: 8082

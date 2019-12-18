@@ -1,0 +1,21 @@
+#bootstrap.yml会优先于application.yml执行
+spring:
+  cloud:
+    config:
+      uri:  http://localhost:8082   #yml 配置的服务器地址
+      label:  master       ###http://localhost:8082/user
+      profile:  dev         ###http://localhost:8082/user-dev.yml
+  application:
+      name:  user
+
+
+
+#      spring:
+#      application:
+#        name: user
+#      profiles:
+#        active: dev
+#      cloud:
+#        config:
+#          uri: http://localhost:8082
+#          fail-fast: true

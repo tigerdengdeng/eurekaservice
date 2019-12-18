@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--引入父框架-->
+    <parent>
+        <groupId>cloudservice</groupId>
+        <artifactId>eurekaservice</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <!--当前子框架-->
+    <groupId>com.tiger</groupId>
+    <artifactId>project-eurekaserver</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>project-eurekaserver</name>
+    <description>Demo project for Spring Boot</description>
+    <!--eureka 注册中心依赖-->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+</project>

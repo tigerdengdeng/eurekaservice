@@ -1,0 +1,20 @@
+#指定端口号
+server:
+  port: 8081
+
+#eureka 注册中心配置
+eureka:
+  instance:
+    hostname: localhost   #服务注册中心实例主机名
+  server:
+    eviction-interval-timer-in-ms: 1000   #续期时间，即扫描失效服务的间隔时间（缺省为60*1000ms）
+    enable-self-preservation: false
+  client:
+    register-with-eureka: false   #是否向注册中心 注册自己 不需要 因为她是提供给客户端注册 不需要注册自己
+    fetch-registry: false    #是否检索服务
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/   #服务注册中心的配置内容， 指定服务注册中心的路径位置
+#指定当前注册中心名称
+spring:
+  application:
+    name: project-eurekaserver
