@@ -10,6 +10,7 @@
         <module name="project-eurekaserver" />
         <module name="project-configserver" />
         <module name="project-userclient" />
+        <module name="project-zuulserver" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="project-configserver" options="-parameters" />
       <module name="project-eurekaserver" options="-parameters" />
       <module name="project-userclient" options="-parameters" />
+      <module name="project-zuulserver" options="-parameters" />
     </option>
   </component>
 </project>

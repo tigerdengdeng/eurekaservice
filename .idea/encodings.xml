@@ -5,5 +5,6 @@
     <file url="file://$PROJECT_DIR$/project-configserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-eurekaserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/project-userclient" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project-zuulserver" charset="UTF-8" />
   </component>
 </project>
