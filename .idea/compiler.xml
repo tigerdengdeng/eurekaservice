@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eurekaservice" />
-        <module name="project-eurekaserver" />
+        <module name="project-common" />
         <module name="project-configserver" />
+        <module name="project-eurekaserver" />
         <module name="project-userclient" />
         <module name="project-zuulserver" />
       </profile>
@@ -17,6 +17,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eurekaservice" options="-parameters" />
+      <module name="project-common" options="-parameters" />
       <module name="project-configserver" options="-parameters" />
       <module name="project-eurekaserver" options="-parameters" />
       <module name="project-userclient" options="-parameters" />

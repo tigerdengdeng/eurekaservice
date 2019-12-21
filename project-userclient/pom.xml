@@ -64,5 +64,12 @@
 			<version>6.1.0.Alpha6</version>
 		</dependency>
 		<!--参数校验依赖end-->
+		<!--引入公共项目依赖-->
+		<dependency>
+			<groupId>com.tiger</groupId>
+			<artifactId>project-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 	</dependencies>
 </project>

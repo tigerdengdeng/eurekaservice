@@ -19,5 +19,4 @@ zuul:
 # ignored-services: "*" 限制以服务名称进行访问
         path:  /user-api/**
         serviceId:  project-userclient
-
   ignored-services: "*"

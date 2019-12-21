@@ -37,7 +37,7 @@ mybatis:
 logging:
   level:
      root: warn
-     project-userclient: trace  #最低的日志级别
+     project-userclient: debug  #最低的日志级别
   pattern:
     console:  '%p%m%n'  #输出格式
 
