@@ -44,4 +44,6 @@ public interface UserMapper extends BaseMapper<TUser> {
     @Override
     TUser selectOne(@Param(Constants.WRAPPER) Wrapper<TUser> queryWrapper);
 
+
+
 }

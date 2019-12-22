@@ -13,7 +13,10 @@ import org.springframework.stereotype.Component;
 public enum code {
     ERROR_500(500, "内部错误"),
     ERROR_401(401, "数据异常"),
-    ERROR_404(404,"找不到页面"),
+    ERROR_404(404, "找不到页面"),
+    ERROR_505(505, "无此用户"),
+    ERROR_506(506, "密码错误"),
+    SUCCESS_200(200, "操作成功"),
     ;
 
     private Integer code;

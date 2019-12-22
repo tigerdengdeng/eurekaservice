@@ -35,6 +35,36 @@
             <optional>true</optional>
             <version>1.18.10</version>
         </dependency>
-
+        <!--jwt验证-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <!-- avax.xml.bind这里在使用java9然后调用jwt的签名方法的时候抛出的异常，经过多放查证，发现是版本的问题，
+       换成jdk8问题就不复存在了，这是由于使用的是Java EE API，
+       由于JDK9提出的模块化的概念，导致jjava.ee模块不再以后的版本里默认提供但是由于项目中统一用到的是java9，
+       所以只能通过maven进行导入使用了>-->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!--集成redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--集成redis连接池-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>
