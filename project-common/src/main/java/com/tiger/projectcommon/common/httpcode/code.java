@@ -11,8 +11,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public enum code {
-    PRIMARY_SCHOOL(100, "你可能在上小学"),
-    MIDDLE_SCHOLL(101, "你可能在上中学"),
+    ERROR_500(500, "内部错误"),
+    ERROR_401(401, "数据异常"),
+    ERROR_404(404,"找不到页面"),
     ;
 
     private Integer code;

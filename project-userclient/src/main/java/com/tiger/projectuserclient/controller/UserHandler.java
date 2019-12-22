@@ -6,11 +6,8 @@ import com.tiger.projectcommon.common.json.JsonResult;
 import com.tiger.projectuserclient.domain.TUser;
 import com.tiger.projectuserclient.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,18 +23,26 @@ public class UserHandler {
 
     @Autowired
     public UserService service;
-
-    @Autowired
-    private DiscoveryClient client;
+    private JsonResult jsonResult=new JsonResult();
 
     @GetMapping("/index")
     public JsonResult index() {
-        JsonResult jsonResult = new JsonResult();
         QueryWrapper<TUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.likeRight("id", 1);
         List<TUser> item = service.selectList(queryWrapper);
         jsonResult.setData(item);
         return jsonResult;
     }
+
+
+    @PostMapping("/login")
+    public  JsonResult login(@RequestBody  @Validated TUser user)
+    {
+       TUser tUser=service.selectById(1);
+        jsonResult.setData(tUser);
+       return jsonResult;
+    }
+
+
 
 }

@@ -7,10 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="project-common" />
-        <module name="project-configserver" />
         <module name="project-eurekaserver" />
-        <module name="project-userclient" />
         <module name="project-zuulserver" />
+        <module name="project-configserver" />
+        <module name="project-userclient" />
       </profile>
     </annotationProcessing>
   </component>
