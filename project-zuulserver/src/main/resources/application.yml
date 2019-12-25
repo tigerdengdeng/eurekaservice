@@ -1,22 +1,36 @@
 #指定服务名称
 spring:
- application:
+  application:
     name:  project-zuulserver
 server:      #指定当前端口
-   port:  8084
+  port:  8084
 #eureka 配置
 eureka:
   client:
-     service-url:
-         defaultZone:  http://localhost:8081/eureka/     #当前服务注册到服务中心去 http为注册中心地址
+    service-url:
+      defaultZone:  http://localhost:8081/eureka/     #当前服务注册到服务中心去 http为注册中心地址
 #zuul 配置
 zuul:
   routes:
- #标识你服务的名字，这里可以自己定义，一般方便和规范来讲还是跟自己服务的名字一样
+    #标识你服务的名字，这里可以自己定义，一般方便和规范来讲还是跟自己服务的名字一样
     project-userclient:
-#服务映射的路径，通过这路径就可以从外部访问你的服务了，目的是为了不爆露你机器的IP，面向服务的路由了，给你选一个可用的出来，
-#这里zuul是自动依赖hystrix，ribbon的，不是面向单机
-# ignored-services: "*" 限制以服务名称进行访问
-        path:  /user-api/**
-        serviceId:  project-userclient
+      #服务映射的路径，通过这路径就可以从外部访问你的服务了，目的是为了不爆露你机器的IP，面向服务的路由了，给你选一个可用的出来，
+      #这里zuul是自动依赖hystrix，ribbon的，不是面向单机
+      # ignored-services: "*" 限制以服务名称进行访问
+      path:  /user-api/**
+      serviceId:  project-userclient
   ignored-services: "*"
+  retryable: true
+  ribbon:
+    ConnectTimeout: 250 # 连接超时时间(ms)
+    ReadTimeout: 2000 # 通信超时时间(ms)
+    OkToRetryOnAllOperations: true # 是否对所有操作重试
+    MaxAutoRetriesNextServer: 2 # 同一服务不同实例的重试次数
+    MaxAutoRetries: 1 # 同一实例的重试次数
+  hystrix:
+    command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMillisecond: 6000 # 熔断超时时长：6000ms

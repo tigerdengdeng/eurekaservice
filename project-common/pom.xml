@@ -57,14 +57,21 @@
         </dependency>
         <!--集成redis连接池-->
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-pool2</artifactId>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>RELEASE</version>
-            <scope>compile</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--        			<groupId>org.apache.commons</groupId>-->
+<!--        			<artifactId>commons-pool2</artifactId>-->
+<!--        		</dependency>-->
     </dependencies>
+<!--    <build>-->
+<!--        &lt;!&ndash;该插件是用来构建正常的springboot项目的可运行jar包&ndash;&gt;-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 </project>

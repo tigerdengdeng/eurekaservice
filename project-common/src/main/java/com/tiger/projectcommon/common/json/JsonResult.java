@@ -18,6 +18,7 @@ public class JsonResult<T> implements Serializable {
     private T data;
     private String code;
     private String msg;
+    private String token;
 
     /**
      * 若没有数据返回，默认状态码为 0，提示信息为“操作成功！”
@@ -59,6 +60,20 @@ public class JsonResult<T> implements Serializable {
         this.data = data;
         this.code = "0";
         this.msg = msg;
+
+    }
+
+    /**
+     * 有数据返回，状态码为 0，人为指定提示信息
+     *
+     * @param data
+     * @param msg
+     */
+    public JsonResult(T data, String msg,String token) {
+        this.data = data;
+        this.code = "0";
+        this.msg = msg;
+        this.token=token;
     }
 
 

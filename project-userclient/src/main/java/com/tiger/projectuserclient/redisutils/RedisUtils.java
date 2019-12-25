@@ -1,19 +1,19 @@
-package com.tiger.projectcommon.common.redis;
+package com.tiger.projectuserclient.redisutils;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * redis 公共配置类
+ * redis  工具类
  *
  * @author mytiger
- * @date  2019-12-23 00:37
+ * @date  2019-15-26
  */
-@Configuration  //配置类注解
-public class redisConfig {
+@Component
+public class RedisUtils {
 
     /**
      * 注入Redis data
@@ -21,6 +21,7 @@ public class redisConfig {
      */
     @Autowired
     private RedisTemplate redisTemplate;
+
     /**
      * 存入缓存
      * @param key  key值
